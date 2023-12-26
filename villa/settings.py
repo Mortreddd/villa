@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'compressor',
-    'clients'
+    'clients',
+    'transactions',
+    'properties',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +84,7 @@ STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'todolist',
+        'NAME': 'villa',
         'USER': 'emmanuel',
         'PASSWORD': '12345678',
         'HOST':'localhost',
