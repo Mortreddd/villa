@@ -3,7 +3,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  class="scroll-smooth scroll-m-10">
 
 <head>
     <meta charset="UTF-8">
@@ -18,10 +18,19 @@
 </head>
 
 <body class="bg-white">
-    <main class="container mx-auto">
+    <div id="loading-animation" class="absolute w-full h-[100vh] flex justify-center items-center bg-black transition-all duration-500 ease-out">
+        <div class="flex items-center gap-2 px-4 py-2 w-fit h-52">
+            <div class="w-5 h-5 transition-all duration-300 rounded-full bg-amber-600 loading-ball ease-it-out"></div>
+            <div class="w-5 h-5 transition-all duration-300 rounded-full bg-amber-600 loading-ball ease-it-out"></div>
+            <div class="w-5 h-5 transition-all duration-300 rounded-full bg-amber-600 loading-ball ease-it-out"></div>
+            <div class="w-5 h-5 transition-all duration-300 rounded-full bg-amber-600 loading-ball ease-it-out"></div>
+        </div>
+    </div>
+    <main id="content" class="container hidden mx-auto transition-all duration-500 ease-in">
         {% block content %}
         {% endblock content %}
     </main>
+    <script src="/static/js/loading.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     {% block scripts %}
     {% endblock  %}
