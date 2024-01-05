@@ -15,4 +15,4 @@ class Property(models.Model):
     status = models.CharField(max_length=50)
     parking = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
-    property = models.ForeignKey(PropertyType, on_delete=models.CASCADE)
+    property_type = models.ForeignKey(PropertyType, on_delete=models.CASCADE)

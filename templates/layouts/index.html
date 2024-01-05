@@ -1,12 +1,13 @@
-{% extends "base.html" %}
 
+{% extends "base.html" %}
+{% load static %}
 
 {% block title %}Villa{% endblock  %}
 
 {% block content %}
     {% include 'includes/header.html' %}
      
-    <section id="controls-carousel" class="flex items-center justify-center w-auto h-screen bg-fixed bg-center bg-no-repeat" style="background-image: url(static/images/banner-01.jpg)" data-carousel="static">
+    <section id="controls-carousel" class="flex items-center justify-center w-auto h-screen bg-fixed bg-center bg-no-repeat" style="background-image: url('{% static '/images/banner-01.jpg' %}')" data-carousel="static">
         <article class="h-auto space-y-5 w-[32rem]">
             <div class="gap-2 px-4 py-2 bg-white w-fit">
                 <h2 class="inline-block font-sans text-lg text-black">Toronto, </h2>
@@ -24,9 +25,9 @@
     <section class="relative flex items-center justify-center w-full h-auto py-24">
         <article class="relative w-auto h-[32rem] bg-white flex gap-5">
             <div class="absolute bottom-0 left-0 items-center justify-center p-5 -translate-x-10 translate-y-10 bg-red-600 rounded-full h-fit">
-                <img src="static/images/featured-icon.png" class="h-14 w-14" alt="" srcset="">
+                <img src="{% static "/images/featured-icon.png" %}" class="h-14 w-14" alt="" srcset="">
             </div>
-            <img src="static/images/featured.jpg" class="object-contain aspect-auto w-96" alt="" srcset="" />
+            <img src="{% static "/images/featured.jpg" %}" class="object-contain aspect-auto w-96" alt="" srcset="" />
             <div class="w-auto space-y-6 h-fit">
                 <h6 class="px-2 font-sans text-lg font-bold border-l-4 border-solid text-amber-600 border-amber-600">Featured</h6>
                 <h1 class="space-y-2 font-sans text-5xl font-bold text-black">
@@ -60,48 +61,21 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col items-center justify-center p-3 space-y-4 divide-y-2 shadow-xl w-80 rounded-xl shadow-gray-300">
-                <div class="flex items-center w-full h-auto gap-5 p-5">
-                    <img src="static/images/info-icon-01.png" class="object-contain h-14 w-14 aspect-square" alt="" srcset="">
-                    <div class="flex flex-col items-start justify-center h-full">
-                        <h1 class="font-sans text-2xl font-semibold text-black">250 m2</h1>
-                        <h1 class="font-sans text-lg text-gray-400">250 m2</h1>
-                    </div>
-                </div>
-                <div class="flex items-center w-full h-auto gap-5 p-5">
-                    <img src="static/images/info-icon-02.png" class="object-contain h-14 w-14 aspect-square" alt="" srcset="">
-                    <div class="flex flex-col items-start justify-center h-full">
-                        <h1 class="font-sans text-2xl font-semibold text-black">Contract</h1>
-                        <h1 class="font-sans text-lg text-gray-400">Contract Ready</h1>
-                    </div>
-                </div>
-                <div class="flex items-center w-full h-auto gap-5 p-5">
-                    <img src="static/images/info-icon-03.png" class="object-contain h-14 w-14 aspect-square" alt="" srcset="">
-                    <div class="flex flex-col items-start justify-center h-full">
-                        <h1 class="font-sans text-2xl font-semibold text-black">Payment</h1>
-                        <h1 class="font-sans text-lg text-gray-400">Payment Process</h1>
-                    </div>
-                </div>
-                <div class="flex items-center w-full h-auto gap-5 p-5">
-                    <img src="static/images/info-icon-04.png" class="object-contain h-14 w-14 aspect-square" alt="" srcset="">
-                    <div class="flex flex-col items-start justify-center h-full">
-                        <h1 class="font-sans text-2xl font-semibold text-black">Safety</h1>
-                        <h1 class="font-sans text-lg text-gray-400">24/7 Under Control</h1>
-                    </div>
-                </div>
-            </div>
+            <!-- Property Process Detail -->
+            {% include "includes/property-description.html" %}
+
         </article>  
     </section>
 
     <section class="relative w-full h-fit">
         <div class="w-full h-auto mb-10">
-            <div class="relative flex flex-col items-center w-full h-auto pt-20 space-y-10 bg-top bg-no-repeat bg-contain" style="background-image: url(static/images/video-bg.jpg)">
+            <div class="relative flex flex-col items-center w-full h-auto pt-20 space-y-10 bg-top bg-no-repeat bg-contain" style="background-image: url({% static '/images/video-bg.jpg' %})">
                 <p class="px-2 font-sans text-lg font-bold text-red-500 border-l-4 border-red-500 border-solid">VIDEO VIEW</p>
                 <h1 class="font-sans text-5xl font-bold text-white">
                     GET CLOSER VIEW & <br />
                     DIFFERENT FEELING
                 </h1>
-                <img src="static/images/video-frame.jpg" alt="" class="relative object-contain rounded-lg h-[30rem] w-auto" srcset="">
+                <img src="{% static '/images/video-frame.jpg' %}" alt="" class="relative object-contain rounded-lg h-[30rem] w-auto" srcset="">
                 <div class="relative flex w-full py-5 justify-evenly">
                     <article class="relative flex items-center justify-center gap-6 px-6 py-5 bg-orange-200 w-72 rounded-xl">
                         <div class="absolute top-0 right-0 bg-orange-600 rounded-full h-14 w-14 -translate-y-7 translate-x-7"></div>
@@ -141,63 +115,25 @@
                 <div class="flex justify-between w-full">
                     <h1 class="w-1/2 font-sans text-4xl font-bold text-black">FIND YOUR BEST DEAL <br/> RIGHT NOW!</h1>
                     <div class="flex items-end justify-end w-1/2 gap-5">
-                        <button type="button" class="py-3 text-xl text-white transition-all ease-in-out rounded-lg DURATION-100 bg-amber-600 hover:scale-105 w-52 h-fit">Apartment</button>
-                        <button type="button" class="py-3 text-xl text-white transition-all ease-in-out bg-black rounded-lg DURATION-100 hover:scale-105 w-52 h-fit">Villa House</button>
-                        <button type="button" class="py-3 text-xl text-white transition-all ease-in-out bg-black rounded-lg DURATION-100 hover:scale-105 w-52 h-fit">Penthouse</button>
+                        <button id="appartment" type="button" class="py-3 text-xl text-white transition-all ease-in-out rounded-lg DURATION-100 bg-amber-600 hover:scale-105 w-52 h-fit">Apartment</button>
+                        <button id="villa-house" type="button" class="py-3 text-xl text-white transition-all ease-in-out bg-black rounded-lg DURATION-100 hover:scale-105 w-52 h-fit">Villa House</button>
+                        <button id="penthouse" type="button" class="py-3 text-xl text-white transition-all ease-in-out bg-black rounded-lg DURATION-100 hover:scale-105 w-52 h-fit">Penthouse</button>
                     </div>
                 </div>
-                <div class="flex justify-between w-full py-5">
-                    <div class="h-full w-80 ">
-                        <div class="flex flex-col w-full bg-white divide-y-2 rounded-xl shado-lg shadow-gray-400 p-7">
-                            <div class="flex items-center justify-between w-full py-4">
-                                <h1 class="font-sans text-gray-400 text-md">Total Flat Space</h1>
-                                <h2 class="font-sans text-xl font-bold text-black">185 m2</h2>
-                            </div>
-                            <div class="flex items-center justify-between w-full py-4">
-                                <h1 class="font-sans text-gray-400 text-md">Floor Number</h1>
-                                <h2 class="font-sans text-xl font-bold text-black">26th</h2>
-                            </div>
-                            <div class="flex items-center justify-between w-full py-4">
-                                <h1 class="font-sans text-gray-400 text-md">Number of rooms</h1>
-                                <h2 class="font-sans text-xl font-bold text-black">4</h2>
-                            </div>
-                            <div class="flex items-center justify-between w-full py-4">
-                                <h1 class="font-sans text-gray-400 text-md">Parking Available</h1>
-                                <h2 class="font-sans text-xl font-bold text-black">Yes</h2>
-                            </div>
-                            <div class="flex items-center justify-between w-full py-4">
-                                <h1 class="font-sans text-gray-400 text-md">Payment Process</h1>
-                                <h2 class="font-sans text-xl font-bold text-black">Bank</h2>
-                            </div>
-                        </div>
+                <div class="w-full best-deals">
+                    <!-- APPARTMENT -->
+                    <div id="appartment-window" class="flex justify-between w-full py-5">
+                        {% include "includes/appartment.html" %}
+                    </div>
+                    
+                    <!-- VILLA HOUSE -->
+                    <div id="villa-house-window" class="justify-between hidden w-full py-5">
+                        {% include "includes/villa-house.html" %}
                     </div>
 
-                    <div class="w-[35rem] h-full">
-                        <img src="static/images/property-05.jpg" alt="" srcset="" class="object-contain w-full h-full">
-                    </div>
-                    <div class="flex flex-col items-start h-full space-y-6 w-80">
-                        <h1 class="font-sans text-lg font-semibold text-black">Extra Info About Property</h1>
-                        <p class="font-sans text-gray-400 text-md">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Ab officiis quia doloremque non, harum nam, quisquam ut mollitia ea 
-                            impedit quibusdam, aperiam repellat voluptates minus necessitatibus 
-                            nihil. Eius, veritatis dolorum.
-                        </p>
-                        <p class="font-sans text-gray-400 text-md">
-                            When you need free CSS templates, you can simply type 
-                            TemplateMo in any search engine website. In addition, 
-                            you can type TemplateMo Portfolio, TemplateMo One Page Layouts, etc.
-                        </p>
-                        <div class="flex items-center text-white rounded-full bg-slate-950">
-                            <a href="#" class="mr-5 transition-colors duration-300 ease-in-out rounded-full bg-amber-700 hover:bg-amber-800">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 m-3 text-white transition-colors duration-300 ease-in-out rounded hover:text-gray-500">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
-                                </svg>
-                            </a>
-                            <div class="flex items-center justify-center w-auto h-auto rounded-full">
-                                <a href="#" class="mr-5 font-sans text-sm font-medium text-white transition-colors duration-300 ease-in-out hover:text-red-700">Schedule a visit</a>
-                            </div>
-                        </div>
+                    <!-- PENTHOUSE -->
+                    <div id="penthouse-window" class="justify-between hidden w-full py-5">
+                        {% include "includes/penthouse.html" %}
                     </div>
                 </div>
             </div>
@@ -209,11 +145,11 @@
             We Provide The Best <br />
             Property You Like
         </h1>
-        <article class="grid w-full grid-cols-3 gap-3 py-5 h-fit">
+        <article class="grid w-full grid-cols-3 gap-6 py-5 h-fit">
             <!-- PROPERTY 1 -->
             <a href="" class="w-full p-6 divide-y-2 rounded-lg bg-gray-50 h-fit">
                 <div class="w-full h-fit">
-                    <img src="static/images/property-01.jpg" alt="" srcset="" class="object-cover w-full h-full rounded-lg">
+                    <img src="{% static '/images/property-01.jpg' %}" alt="" srcset="" class="object-cover w-full h-full rounded-lg">
                     <div class="flex items-center justify-between w-full my-3 h-fit">
                         <h2 class="w-auto p-2 font-sans text-black bg-red-200 rounded-lg text-md h-fit">Luxury Villa</h2>
                         <h1 class="font-sans text-xl font-semibold bg-transparent text-amber-600">&dollar;2.263.000</h1>
@@ -221,10 +157,26 @@
                     <div class="flex justify-start my-3 w full">
                         <h1 class="font-sans text-xl font-bold text-black">18 New Street Miami, OR 97219</h1>
                     </div>
-                    <div class="flex flex-wrap justify-start w-full py-2 my-3">
+                    <div class="flex flex-wrap justify-start w-full gap-4 py-2 my-3">
                         <div class="w-auto gap-3 py-2">
                             <p class="inline-block font-sans text-black text-md">Bedroom: </p>
                             <p class="inline-block font-sans font-bold text-black text-md">8</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Bathroom: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">8</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Area: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">545m2</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Floor: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">3</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Parking: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">6 spots</p>
                         </div>
                     </div>
                 </div>
@@ -237,18 +189,34 @@
             <!-- PROPERTY 2 -->
             <a href="" class="w-full p-6 divide-y-2 rounded-lg bg-gray-50 h-fit">
                 <div class="w-full h-fit">
-                    <img src="static/images/property-02.jpg" alt="" srcset="" class="object-cover w-full h-full rounded-lg">
+                    <img src="{% static '/images/property-02.jpg' %}" alt="" srcset="" class="object-cover w-full h-full rounded-lg">
                     <div class="flex items-center justify-between w-full my-3 h-fit">
                         <h2 class="w-auto p-2 font-sans text-black bg-red-200 rounded-lg text-md h-fit">Luxury Villa</h2>
-                        <h1 class="font-sans text-xl font-semibold bg-transparent text-amber-600">&dollar;2.263.000</h1>
+                        <h1 class="font-sans text-xl font-semibold bg-transparent text-amber-600">&dollar;1.180.000</h1>
                     </div>
                     <div class="flex justify-start my-3 w full">
-                        <h1 class="font-sans text-xl font-bold text-black">18 New Street Miami, OR 97219</h1>
+                        <h1 class="font-sans text-xl font-bold text-black">54 Mid Street Florida, OR 27001</h1>
                     </div>
-                    <div class="flex flex-wrap justify-start w-full py-2 my-3">
+                    <div class="flex flex-wrap justify-start w-full gap-4 py-2 my-3">
                         <div class="w-auto gap-3 py-2">
                             <p class="inline-block font-sans text-black text-md">Bedroom: </p>
-                            <p class="inline-block font-sans font-bold text-black text-md">8</p>
+                            <p class="inline-block font-sans font-bold text-black text-md">6</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Bathroom: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">5</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Area: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">450m2</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Floor: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">3</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Parking: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">8 spots</p>
                         </div>
                     </div>
                 </div>
@@ -261,18 +229,156 @@
             <!-- PROPERTY 3 -->
             <a href="" class="w-full p-6 divide-y-2 rounded-lg bg-gray-50 h-fit">
                 <div class="w-full h-fit">
-                    <img src="static/images/property-02.jpg" alt="" srcset="" class="object-cover w-full h-full rounded-lg">
+                    <img src="{% static '/images/property-03.jpg' %}" alt="" srcset="" class="object-cover w-full h-full rounded-lg">
                     <div class="flex items-center justify-between w-full my-3 h-fit">
                         <h2 class="w-auto p-2 font-sans text-black bg-red-200 rounded-lg text-md h-fit">Luxury Villa</h2>
-                        <h1 class="font-sans text-xl font-semibold bg-transparent text-amber-600">&dollar;2.263.000</h1>
+                        <h1 class="font-sans text-xl font-semibold bg-transparent text-amber-600">&dollar;1.460.000</h1>
                     </div>
                     <div class="flex justify-start my-3 w full">
-                        <h1 class="font-sans text-xl font-bold text-black">18 New Street Miami, OR 97219</h1>
+                        <h1 class="font-sans text-xl font-bold text-black">26 Old Street Miami, OR 38540</h1>
                     </div>
-                    <div class="flex flex-wrap justify-start w-full py-2 my-3">
+                    <div class="flex flex-wrap justify-start w-full gap-4 py-2 my-3">
                         <div class="w-auto gap-3 py-2">
                             <p class="inline-block font-sans text-black text-md">Bedroom: </p>
-                            <p class="inline-block font-sans font-bold text-black text-md">8</p>
+                            <p class="inline-block font-sans font-bold text-black text-md">5</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Bathroom: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">4</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Area: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">225m2</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Floor: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">3</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Parking: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">10 spots</p>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="flex items-center justify-center w-full py-4 h-fit">
+                    <button type="button" class="px-5 py-2 text-lg text-white transition-colors duration-300 ease-in-out bg-black rounded-l-full rounded-r-full text-white-font-sans hover:bg-amber-600">Schedule a visit</button>
+                </div>
+            </a>
+                
+            <!-- PROPERTY 4 -->
+            <a href="" class="w-full p-6 divide-y-2 rounded-lg bg-gray-50 h-fit">
+                <div class="w-full h-fit">
+                    <img src="{% static '/images/property-04.jpg' %}" alt="" srcset="" class="object-cover w-full h-full rounded-lg">
+                    <div class="flex items-center justify-between w-full my-3 h-fit">
+                        <h2 class="w-auto p-2 font-sans text-black bg-red-200 rounded-lg text-md h-fit">Appartment</h2>
+                        <h1 class="font-sans text-xl font-semibold bg-transparent text-amber-600">&dollar;584.500</h1>
+                    </div>
+                    <div class="flex justify-start my-3 w full">
+                        <h1 class="font-sans text-xl font-bold text-black">12 New Street Miami, OR 12650</h1>
+                    </div>
+                    <div class="flex flex-wrap justify-start w-full gap-4 py-2 my-3">
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Bedroom: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">4</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Bathroom: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">3</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Area: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">125m2</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Floor: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">25th</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Parking: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">2 cars</p>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="flex items-center justify-center w-full py-4 h-fit">
+                    <button type="button" class="px-5 py-2 text-lg text-white transition-colors duration-300 ease-in-out bg-black rounded-l-full rounded-r-full text-white-font-sans hover:bg-amber-600">Schedule a visit</button>
+                </div>
+            </a>
+            <!-- PROPERTY 5 -->
+            <a href="" class="w-full p-6 divide-y-2 rounded-lg bg-gray-50 h-fit">
+                <div class="w-full h-fit">
+                    <img src="{% static '/images/property-05.jpg' %}" alt="" srcset="" class="object-cover w-full h-full rounded-lg">
+                    <div class="flex items-center justify-between w-full my-3 h-fit">
+                        <h2 class="w-auto p-2 font-sans text-black bg-red-200 rounded-lg text-md h-fit">Penthouse</h2>
+                        <h1 class="font-sans text-xl font-semibold bg-transparent text-amber-600">&dollar;925.600</h1>
+                    </div>
+                    <div class="flex justify-start my-3 w full">
+                        <h1 class="font-sans text-xl font-bold text-black">34 Beach Street Miami, OR 42680</h1>
+                    </div>
+                    <div class="flex flex-wrap justify-start w-full gap-4 py-2 my-3">
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Bedroom: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">4</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Bathroom: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">4</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Area: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">180m2</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Floor: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">38th</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Parking: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">2 cars</p>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="flex items-center justify-center w-full py-4 h-fit">
+                    <button type="button" class="px-5 py-2 text-lg text-white transition-colors duration-300 ease-in-out bg-black rounded-l-full rounded-r-full text-white-font-sans hover:bg-amber-600">Schedule a visit</button>
+                </div>
+            </a>
+
+            <!-- PROPERTY 5 -->
+            <a href="" class="w-full p-6 divide-y-2 rounded-lg bg-gray-50 h-fit">
+                <div class="w-full h-fit">
+                    <img src="{% static '/images/property-06.jpg' %}" alt="" srcset="" class="object-cover w-full h-full rounded-lg">
+                    <div class="flex items-center justify-between w-full my-3 h-fit">
+                        <h2 class="w-auto p-2 font-sans text-black bg-red-200 rounded-lg text-md h-fit">Modern Condo</h2>
+                        <h1 class="font-sans text-xl font-semibold bg-transparent text-amber-600">&dollar;450.000</h1>
+                    </div>
+                    <div class="flex justify-start my-3 w full">
+                        <h1 class="font-sans text-xl font-bold text-black">22 New Street Portland, OR 16540</h1>
+                    </div>
+                    <div class="flex flex-wrap justify-start w-full gap-4 py-2 my-3">
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Bedroom: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">3</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Bathroom: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">2</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Area: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">165m2</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Floor: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">26th</p>
+                        </div>
+                        <div class="w-auto gap-3 py-2">
+                            <p class="inline-block font-sans text-black text-md">Parking: </p>
+                            <p class="inline-block font-sans font-bold text-black text-md">3 cars</p>
                         </div>
                     </div>
                 </div>
@@ -285,8 +391,71 @@
         </article>
 
     </section>  
+    <section class="w-full h-fit">
+        <div class="w-full h-full p-20 bg-top bg-no-repeat bg-contain" style="background-image: url(' {% static '/images/contact-bg.jpg' %}')">
+            <div class="flex flex-col items-center w-full gap-10 h-fit">
+                <h3 class="px-2 font-sans font-bold text-center text-red-600 border-l-4 border-red-600 border-solid text-md">CONTACT US</h3>
+                <h1 class="font-sans text-5xl font-bold text-center text-white">
+                    Get In Touch With <br>
+                    Our Agents
+                </h1>
+                <div class="flex w-full gap-7 h-[37rem]">
+                    <div class="flex flex-col justify-between w-9/12 h-full gap-y-9">
+                        <img src="{% static '/images/google-map.png' %}" alt="" srcset="" class="object-cover w-full rounded-xl h-fit">
+                        <div class="flex justify-between w-full h-36">
+                            <div class="flex items-center justify-start h-full gap-4 py-10 rounded-lg shadow-lg w-80 px-7 shadow-gray-300">
+                                <img src="{% static '/images/phone-icon.png' %}" alt="" srcset="" class="w-auto h-full ml-3">
+                                <div class="flex flex-col items-start justify-center w-full h-full space-y-1">
+                                    <h1 class="font-sans text-2xl font-semibold text-black">010-020-0340</h1>
+                                    <p class="font-sans text-lg text-gray-400">Phone Number</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-start h-full gap-4 py-10 rounded-lg shadow-lg w-80 px-7 shadow-gray-300">
+                                <img src="{% static '/images/email-icon.png' %}" alt="" srcset="" class="w-auto h-full ml-3">
+                                <div class="flex flex-col items-start justify-center w-full h-full space-y-1">
+                                    <h1 class="font-sans text-2xl font-semibold text-black">foo@bar</h1>
+                                    <p class="font-sans text-lg text-gray-400">Business Email</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form method="POST" class="flex flex-col items-center w-full h-full gap-8 bg-white shadow-lg rounded-xl shadow-gray-300 p-9">
+                        {% csrf_token %}
+                        <!-- FULL NAME -->
+                        <div class="w-full gap-4 h-fit">
+                            <h3 class="font-sans text-lg text-gray-700">Full Name</h3>
+                            <input type="text" name="full_name" placeholder="Your Name" id="" class="w-full bg-gray-100 border-none rounded-l-full rounded-r-full focus:border-2 focus:border-solid focus:border-black focus:outline-none focus:ring-0">
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="w-full gap-4 h-fit">
+                            <h3 class="font-sans text-lg text-gray-700">Email Address</h3>
+                            <input type="email" name="email" placeholder="Your Email" id="" class="w-full bg-gray-100 border-none rounded-l-full rounded-r-full focus:border-2 focus:border-solid focus:border-black focus:outline-none focus:ring-0">
+                        </div>
+
+                        <!-- SUBJECT -->
+                        <div class="w-full gap-4 h-fit">
+                            <h3 class="font-sans text-lg text-gray-700">Subject</h3>
+                            <input type="text" name="subject" placeholder="Your Name" id="" class="w-full bg-gray-100 border-none rounded-l-full rounded-r-full focus:border-2 focus:border-solid focus:border-black focus:outline-none focus:ring-0">
+                        </div>
+
+                        <!-- MESSAGE -->
+                        <div class="w-full gap-4 h-fit">
+                            <h3 class="font-sans text-lg text-gray-700">Message</h3>
+                            <textarea name="message" id="" rows="3" class="w-full bg-gray-100 focus:border-black focus:border-2 focus:border-solid rounded-xl"></textarea>
+                        </div>
+
+                        <div class="flex justify-start w-full py-4">
+                            <button type="submit" class="px-5 py-2 font-sans text-white transition-colors duration-300 ease-in-out bg-black rounded-l-full rounded-r-full hover:bg-amber-600">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>        
+    </section>
     {% include "includes/footer.html" %}
     {% block scripts %}
-        <script src="static/js/accordion.js"></script>
+        <script src="{% static '/js/accordion.js' %}"></script>
+        <script src="{% static '/js/best-deals.js' %}"></script>
     {% endblock %}
 {% endblock  %}

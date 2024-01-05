@@ -10,7 +10,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
-
     {% compress css %}
         <link rel="stylesheet" href="{% static 'css/output.css' %}">
     {% endcompress %}
@@ -20,18 +19,19 @@
 <body class="bg-white">
     <div id="loading-animation" class="absolute w-full h-[100vh] flex justify-center items-center bg-black transition-all duration-500 ease-out">
         <div class="flex items-center gap-2 px-4 py-2 w-fit h-52">
-            <div class="w-5 h-5 transition-all duration-300 rounded-full bg-amber-600 loading-ball ease-it-out"></div>
-            <div class="w-5 h-5 transition-all duration-300 rounded-full bg-amber-600 loading-ball ease-it-out"></div>
-            <div class="w-5 h-5 transition-all duration-300 rounded-full bg-amber-600 loading-ball ease-it-out"></div>
-            <div class="w-5 h-5 transition-all duration-300 rounded-full bg-amber-600 loading-ball ease-it-out"></div>
+            <div class="w-5 h-5 transition-all duration-75 rounded-full animate-bounce bg-amber-600 loading-ball ease-it-out"></div>
+            <div class="w-5 h-5 transition-all duration-100 rounded-full animate-bounce bg-amber-600 loading-ball ease-it-out"></div>
+            <div class="w-5 h-5 transition-all duration-150 rounded-full animate-bounce bg-amber-600 loading-ball ease-it-out"></div>
+            <div class="w-5 h-5 transition-all duration-200 rounded-full animate-bounce bg-amber-600 loading-ball ease-it-out"></div>
         </div>
     </div>
     <main id="content" class="container hidden mx-auto transition-all duration-500 ease-in">
         {% block content %}
         {% endblock content %}
     </main>
-    <script src="/static/js/loading.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script src="{% static "/js/loading.js" %}"></script>
     {% block scripts %}
     {% endblock  %}
 </body>

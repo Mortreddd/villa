@@ -1,22 +1,13 @@
+const loading = document.getElementById("loading-animation");
+const content = document.getElementById('content');
 
-document.addEventListener('DOMContentLoaded', () => {
+if(document.readyState === "loading"){
+    console.log(document.readyState)
+} 
 
-    const loadingBalls = document.querySelectorAll(".loading-ball");
-    console.log(loadingBalls);
-    while (true) {
-        if(document.readyState !== 'complete'){
+document.addEventListener('DOMContentLoaded', function (){
 
-            document.getElementById('loading-animation').classList.remove('hidden');
-            document.getElementById('content').classList.add('hidden');
-            loadingBalls.forEach(ball => {
-                setTimeout(() => {
-                    ball.classList.add('animate-bounce');
-                }, 200)
-            });
-            break;
-        }
-    }
-    document.getElementById('loading-animation').classList.add('hidden');
-    document.getElementById('content').classList.remove('hidden');
+    loading.classList.replace('flex', 'hidden');
+    content.classList.remove('hidden');
     
-});
+})

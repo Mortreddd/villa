@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Property Details{% endblock  %}
+
+{% block content %}
+
+    {% include "includes/header.html" %}
+    
+    <section class="flex flex-col items-center w-full bg-center bg-no-repeat bg-cover justify-evenly h-[23rem] py-20" style="background-image: url('{% static 'images/page-heading-bg.jpg'%}')">
+        <div class="flex justify-center px-4 py-2 bg-white">
+            <a href="{% url 'home' %}" class="font-sans text-black text-md">Home</a>
+            <span class="mx-2 text-gray-400">/</span>
+            <h1 class="font-sans text-black text-md">Property Details</h1>
+        </div>
+
+        <h1 class="font-sans text-6xl font-extrabold text-white">SINGLE PROPERTY</h1>
+
+    </section>
+
+    <section class="w-full p-24 bg-white h-fit">
+        <div class="flex justify-between w-full h-fit">
+            <img src="{% static 'images/property-01.jpg' %}" alt="" srcset="" class="object-cover object-center w-2/4 h-full">
+            {% include "includes/property-description.html" %}
+        </div>
+    </section>
+
+
+    {% include "includes/footer.html" %}
+    {% block "scripts" %}
+    
+        
+    {% endblock  %}
+
+
+
+{% endblock  %}

@@ -15,10 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from clients import views
+from django.urls import path, include
+from api.models import PropertiesResource, TransactionsResource
+
+
+properties_resource = PropertiesResource()
+transactions_resource = TransactionsResource()
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index')
+    path('', include('clients.urls')),
+    path('properties/', include('properties.urls')),
+    path('api/', include(properties_resource.urls)),
+    path('api/', include(transactions_resource.urls))
 ]
