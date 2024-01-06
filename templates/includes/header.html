@@ -1,6 +1,6 @@
 {% load static %}
 
-<header class="relative w-full h-auto py-2 divide-y-2">
+<header class="sticky z-20 top-0 left-0 w-full h-auto py-2 divide-y-2 bg-white">
     <div class="relative flex justify-between w-full px-24 py-2 bg-white">
         <div class="flex gap-5">
             <div class="flex items-center gap-5">
@@ -50,13 +50,13 @@
             
         </div>
     </div>
-    <nav class="sticky flex items-center justify-between w-full px-24 py-6">
-        <a href="#" class="text-3xl font-bold text-black font sans">VILLA</a>
+    <nav class="relative bg-white flex items-center justify-between w-full px-24 py-6">
+        <a href="{% url "clients:home" %}" class="text-3xl font-bold text-black font sans">VILLA</a>
         <div class="flex items-center gap-10 justify-evenly">
 
-            <a href="/" class="font-sans text-gray-800 transition-colors duration-300 ease-in-out text-md hover:text-amber-600">Home</a>
-            <a href="#" class="font-sans text-gray-800 transition-colors duration-300 ease-in-out text-md hover:text-amber-600">Properties</a>
-            <a href="/properties/details" class="font-sans text-gray-800 transition-colors duration-300 ease-in-out text-md hover:text-amber-600">Properties Details</a>
+            <a href="{% url "clients:home" %}" class="font-sans text-gray-800 transition-colors duration-300 ease-in-out text-md hover:text-amber-600">Home</a>
+            <a href="{% url "properties:index" %}" class="font-sans text-gray-800 transition-colors duration-300 ease-in-out text-md hover:text-amber-600">Properties</a>
+            <a href="{% url "properties:details" %}" class="font-sans text-gray-800 transition-colors duration-300 ease-in-out text-md hover:text-amber-600">Properties Details</a>
             <a href="#" class="font-sans text-gray-800 transition-colors duration-300 ease-in-out text-md hover:text-amber-600">Contact Us</a>
             <div class="flex items-center text-white rounded-full bg-slate-950">
                 <a href="#" class="mr-5 transition-colors duration-300 ease-in-out rounded-full bg-amber-700 hover:bg-amber-800">

@@ -108,37 +108,7 @@
             </div>
         </div>
     </section>
-    <section class="relative w-full p-24 bg-gray-50 h-fit">
-        <div class="w-full h-fit">
-            <div class="w-full space-y-8 h-fit">
-                <p class="px-2 font-sans font-bold border-l-4 border-solid border-amber-600 text-md text-amber-600">BEST DEAL</p>
-                <div class="flex justify-between w-full">
-                    <h1 class="w-1/2 font-sans text-4xl font-bold text-black">FIND YOUR BEST DEAL <br/> RIGHT NOW!</h1>
-                    <div class="flex items-end justify-end w-1/2 gap-5">
-                        <button id="appartment" type="button" class="py-3 text-xl text-white transition-all ease-in-out rounded-lg DURATION-100 bg-amber-600 hover:scale-105 w-52 h-fit">Apartment</button>
-                        <button id="villa-house" type="button" class="py-3 text-xl text-white transition-all ease-in-out bg-black rounded-lg DURATION-100 hover:scale-105 w-52 h-fit">Villa House</button>
-                        <button id="penthouse" type="button" class="py-3 text-xl text-white transition-all ease-in-out bg-black rounded-lg DURATION-100 hover:scale-105 w-52 h-fit">Penthouse</button>
-                    </div>
-                </div>
-                <div class="w-full best-deals">
-                    <!-- APPARTMENT -->
-                    <div id="appartment-window" class="flex justify-between w-full py-5">
-                        {% include "includes/appartment.html" %}
-                    </div>
-                    
-                    <!-- VILLA HOUSE -->
-                    <div id="villa-house-window" class="justify-between hidden w-full py-5">
-                        {% include "includes/villa-house.html" %}
-                    </div>
-
-                    <!-- PENTHOUSE -->
-                    <div id="penthouse-window" class="justify-between hidden w-full py-5">
-                        {% include "includes/penthouse.html" %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    {% include "includes/best-deals.html" %}
     <section class="flex flex-col items-center w-full p-24 bg-white space-y-7 h-fit">
         <h2 class="px-2 font-sans font-bold text-red-500 border-l-4 border-red-500 border-solid text-md">PROPERTIES</h2>
         <h1 class="font-sans text-5xl font-bold text-black">

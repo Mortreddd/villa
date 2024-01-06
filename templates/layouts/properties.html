@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Properties{% endblock  %}
+
+
+{% block content %}
+    {% include "includes/header.html" %}
+    {% include "includes/page-heading.html" %}
+
+    <section class="w-full h-fit p-28">
+        
+        <div class="flex w-full mb-4 justify-center items-center gap-6 px-20">
+            <button class="rounded-lg bg-black py-4 px-7 text-white text-lg hover:text-red-600 transition-colors duration-300 ease-in-out">Show All</button>  
+            {% for property_type in property_types %}
+                <button class="rounded-lg bg-black py-4 px-7 text-white text-lg hover:text-red-600 transition-colors duration-300 ease-in-out catergory">{{ property_type.type_name }}</button>  
+            {% endfor %}
+        </div>
+    </section>
+
+
+    {% include "includes/footer.html" %}
+    {% block scripts %}
+
+        <script src="{% static 'js/testing.js' %}"></script>
+    {% endblock  %}
+{% endblock  %}

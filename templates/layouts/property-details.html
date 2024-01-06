@@ -6,29 +6,73 @@
 
     {% include "includes/header.html" %}
     
-    <section class="flex flex-col items-center w-full bg-center bg-no-repeat bg-cover justify-evenly h-[23rem] py-20" style="background-image: url('{% static 'images/page-heading-bg.jpg'%}')">
-        <div class="flex justify-center px-4 py-2 bg-white">
-            <a href="{% url 'home' %}" class="font-sans text-black text-md">Home</a>
-            <span class="mx-2 text-gray-400">/</span>
-            <h1 class="font-sans text-black text-md">Property Details</h1>
-        </div>
-
-        <h1 class="font-sans text-6xl font-extrabold text-white">SINGLE PROPERTY</h1>
-
-    </section>
+    {% include "includes/page-heading.html" %}
 
     <section class="w-full p-24 bg-white h-fit">
         <div class="flex justify-between w-full h-fit">
-            <img src="{% static 'images/property-01.jpg' %}" alt="" srcset="" class="object-cover object-center w-2/4 h-full">
-            {% include "includes/property-description.html" %}
+            <div class="h-fit flex flex-col items-start divide-y-2">
+                <div class="w-fit h fit gap-10 flex flex-col items-start pb-14"> 
+                    <img src="{% static 'images/single-property.jpg' %}" alt="" srcset="" class="w-auto h-full object-cover">
+
+                    <!-- * PROPERTY TYPE OF THE APPARTMENT EX: APPARTMENT, PENTHOUSE, ETC -->
+                    <h6 class="text-md text-black rounded-lg bg-red-300 p-3 font-semibold font-sans">Appartment</h6>
+                    <!--  * PROPERTY LOCATION -->
+                    <h3 class="text-4xl font-sans font-bold text-black">24 New Street Miami, Or 24560</h3>
+                </div>
+                <!-- * HERE IS THE DEFINITION FOR THE PROPERTY -->
+                <div class="py-14 w-auto h-fit space-y-10">
+                    <p class="text-md space-y-2 font-sans text-gray-700 text-left w-full">
+                        Get the <strong>best villa agency</strong> HTML CSS Bootstrap Template for your company website. 
+                        TemplateMo provides you the best free CSS templates in the world. Please tell your friends about it. 
+                        Thank you. Cloud bread kogi bitters pitchfork shoreditch tumblr yr succulents single-origin coffee 
+                        schlitz enamel pin you probably haven't heard of them ugh hella.
+                    </p>
+                    <p class="text-md space-y-2 font-sans text-gray-700 text-left w-full">
+                        When you look for free CSS templates, you can simply type TemplateMo in any search engine website. 
+                        In addition, you can type TemplateMo Digital Marketing, TemplateMo Corporate Layouts, etc. 
+                        Master cleanse +1 intelligentsia swag post-ironic, slow-carb chambray knausgaard PBR&B DSA poutine 
+                        neutra cardigan hoodie pop-up.
+                    </p>
+                    <div class="h-fit w-full divide-y-2 rounded-lg bg-gray-100">
+                        <div class="my-2">
+                            <a id="trigger-accordion-1" class="block py-3 mx-3 font-sans text-lg cursor-pointer text-amber-600">Best useful link ?</a>
+                            <p class="flex-wrap mx-3 my-2 overflow-hidden font-sans transition-all duration-300 ease-in-out cursor-pointer text-md text-wrap active accordion-item">
+                                Get <strong>the best villa</strong> website template in HTML CSS and Bootstrap for your business. 
+                                TemplateMo provides you the best free CSS templates in the world. 
+                                Please tell your friends about it.
+                            </p>
+                        </div>
+                        <div class="my-2">
+                            <a id="trigger-accordion-2" class="block py-3 mx-3 font-sans text-lg text-black cursor-pointer">Best useful link ?</a>
+                            <p class="flex-wrap h-0 mx-3 my-2 overflow-hidden font-sans transition-all duration-300 ease-in-out cursor-pointer text-md text-wrap accordion-item">
+                                Get <strong>the best villa</strong> website template in HTML CSS and Bootstrap for your business. 
+                                TemplateMo provides you the best free CSS templates in the world. 
+                                Please tell your friends about it.
+                            </p>
+                        </div>
+                        <div class="my-2">
+                            <a id="trigger-accordion-3" class="block py-3 mx-3 font-sans text-lg text-black cursor-pointer">Best useful link ?</a>
+                            <p class="flex-wrap h-0 mx-3 my-2 overflow-hidden font-sans transition-all duration-300 ease-in-out cursor-pointer text-md text-wrap accordion-item">
+                                Get <strong>the best villa</strong> website template in HTML CSS and Bootstrap for your business. 
+                                TemplateMo provides you the best free CSS templates in the world. 
+                                Please tell your friends about it.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <aside class="w-fit h-fit">
+                {% include "includes/property-description.html" %}
+            </aside>
         </div>
     </section>
 
+    {% include "includes/best-deals.html" %}
 
     {% include "includes/footer.html" %}
     {% block "scripts" %}
-    
-        
+        <script src="{% static 'js/accordion.js' %}"></script>
+        <script src="{% static 'js/best-deals.js' %}"></script>
     {% endblock  %}
 
 

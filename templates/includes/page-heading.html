@@ -1,0 +1,18 @@
+{% load static %}
+
+<section class="flex flex-col items-center w-full bg-center bg-no-repeat bg-cover justify-evenly h-[23rem] py-20" style="background-image: url('{% static 'images/page-heading-bg.jpg'%}')">
+    <div class="flex justify-center px-4 py-2 bg-white">
+        <a href="{% url 'clients:home' %}" class="font-sans font-semibold text-black text-md">Home</a>
+        <span class="mx-2 font-semibold text-gray-400">/</span>
+        {% if request.path == "/properties/" %}  
+            <h1 class="font-sans font-semibold text-black text-md">Properties</h1>
+        {% elif request.path == "/properties/details/" %}
+            <h1 class="font-sans font-semibold text-black text-md">Property Details</h1>
+        {% endif %}
+    </div>
+    {% if request.path == "/properties/" %}  
+        <h1 class="font-sans text-6xl font-extrabold text-white">PROPERTIES</h1>
+    {% elif request.path == "/properties/details/" %}
+        <h1 class="font-sans text-6xl font-extrabold text-white">SINGLE PROPERTY</h1>
+    {% endif %}
+</section>

@@ -1,9 +1,15 @@
 from django.shortcuts import render
-from .models import Property
+from .models import Property, PropertyType
 # Create your views here.
 
+
+
+def properties(request):
+    property_types = PropertyType.objects.all()
+    return render(request, 'layouts/properties.html', {'property_types': property_types})
+
+
 def property_details(request):
-    # property = Property.objects.get(pk=property_id) | Property.objects.order_by('price').first()
     
     
     return render(request, 'layouts/property-details.html')
