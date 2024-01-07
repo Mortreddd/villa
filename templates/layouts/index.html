@@ -389,34 +389,34 @@
                             </div>
                         </div>
                     </div>
-                    <form method="POST" class="flex flex-col items-center w-full h-full gap-8 bg-white shadow-lg rounded-xl shadow-gray-300 p-9">
+                    <form action="{% url 'clients:contact' %}" id="contact-form" method="POST" class="flex flex-col items-center w-full h-full gap-8 bg-white shadow-lg rounded-xl shadow-gray-300 p-9">
                         {% csrf_token %}
                         <!-- FULL NAME -->
                         <div class="w-full gap-4 h-fit">
                             <h3 class="font-sans text-lg text-gray-700">Full Name</h3>
-                            <input type="text" name="full_name" placeholder="Your Name" id="" class="w-full bg-gray-100 border-none rounded-l-full rounded-r-full focus:border-2 focus:border-solid focus:border-black focus:outline-none focus:ring-0">
+                            <input type="text" name="full_name" placeholder="Your Name" id="full_name" required class="w-full bg-gray-100 border-none rounded-l-full rounded-r-full focus:border-2 focus:border-solid focus:border-black focus:outline-none focus:ring-0">
                         </div>
 
                         <!-- EMAIL -->
                         <div class="w-full gap-4 h-fit">
                             <h3 class="font-sans text-lg text-gray-700">Email Address</h3>
-                            <input type="email" name="email" placeholder="Your Email" id="" class="w-full bg-gray-100 border-none rounded-l-full rounded-r-full focus:border-2 focus:border-solid focus:border-black focus:outline-none focus:ring-0">
+                            <input type="email" name="email" placeholder="Your Email" id="email" required class="w-full bg-gray-100 border-none rounded-l-full rounded-r-full focus:border-2 focus:border-solid focus:border-black focus:outline-none focus:ring-0">
                         </div>
 
                         <!-- SUBJECT -->
                         <div class="w-full gap-4 h-fit">
                             <h3 class="font-sans text-lg text-gray-700">Subject</h3>
-                            <input type="text" name="subject" placeholder="Your Name" id="" class="w-full bg-gray-100 border-none rounded-l-full rounded-r-full focus:border-2 focus:border-solid focus:border-black focus:outline-none focus:ring-0">
+                            <input type="text" name="subject" placeholder="Your Subject" id="subject" required class="w-full bg-gray-100 border-none rounded-l-full rounded-r-full focus:border-2 focus:border-solid focus:border-black focus:outline-none focus:ring-0">
                         </div>
 
                         <!-- MESSAGE -->
                         <div class="w-full gap-4 h-fit">
                             <h3 class="font-sans text-lg text-gray-700">Message</h3>
-                            <textarea name="message" id="" rows="3" class="w-full bg-gray-100 focus:border-black focus:border-2 focus:border-solid rounded-xl"></textarea>
+                            <textarea name="message" id="message" rows="3" placeholder="Write something..." required class="w-full bg-gray-100 focus:border-black focus:border-2 focus:border-solid rounded-xl"></textarea>
                         </div>
 
                         <div class="flex justify-start w-full py-4">
-                            <button type="submit" class="px-5 py-2 font-sans text-white transition-colors duration-300 ease-in-out bg-black rounded-l-full rounded-r-full hover:bg-amber-600">Send Message</button>
+                            <button id="submit-button" type="submit" class="px-5 py-2 font-sans text-white transition-colors duration-300 ease-in-out bg-black rounded-l-full rounded-r-full hover:bg-amber-600">Send Message</button>
                         </div>
                     </form>
                 </div>
@@ -427,5 +427,6 @@
     {% block scripts %}
         <script src="{% static '/js/accordion.js' %}"></script>
         <script src="{% static '/js/best-deals.js' %}"></script>
+        <script src="{% static '/js/contact-validation.js' %}"></script>
     {% endblock %}
 {% endblock  %}

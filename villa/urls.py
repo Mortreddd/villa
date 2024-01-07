@@ -14,7 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+
 from django.urls import path, include
 from api.models import PropertiesResource, TransactionsResource
 
@@ -25,7 +25,7 @@ transactions_resource = TransactionsResource()
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', include('admin.urls')),
     path('', include('clients.urls')),
     path('properties/', include('properties.urls')),
     path('api/', include(properties_resource.urls)),

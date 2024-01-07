@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -41,7 +40,8 @@ INSTALLED_APPS = [
     'clients.apps.ClientsConfig',
     'transactions.apps.TransactionsConfig',
     'properties.apps.PropertiesConfig',
-    'api.apps.ApiConfig'
+    'api.apps.ApiConfig',
+    'admin.apps.AdminConfig'
 ]
 
 MIDDLEWARE = [
@@ -134,3 +134,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True 
+EMAIL_HOST_USER = 'uniread.platform@gmail.com'
+EMAIL_HOST_PASSWORD = 'fzkoapuquwwqsqab'

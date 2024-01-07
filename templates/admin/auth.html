@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Authorize Login{% endblock  %}
+
+
+{% block content %}
+    <main class="w-full h-[100vh]">
+        <section class="w-full  h-full flex justify-center items-center bg-cover bg-center bg-no-repeat" style="background-image: url('{% static 'images/bg-admin-login.jpg' %}')">
+            <form action="" method="post" class="w-96 h-fit bg-transparent rounded-xl backdrop-blur-lg p-8">
+                <h1 class="text-amber-600 font-sans font-bold w-full text-center text-4xl cursor-default">VILLA <br /> Authorize Login</h1>
+                <div class="w-full p-6 h-full flex flex-col">
+                    <div class="w-full py-3">
+                        <label class="text-xl font-sans font-semibold" for="username">Username</label>
+                        <input type="text" placeholder="Username" name="username" id="username" class="w-full focus:border-solid focus:border-4 rounded-lg focus:ring-0 focus:border-amber-600 font-sans">
+                    </div>
+                    <div class="w-full py-3">
+                        <label class="text-xl font-sans font-semibold" for="username">Password</label>
+                        <input type="password" placeholder="Password" name="password" id="" class="w-full focus:border-solid focus:border-4 rounded-lg focus:ring-0 focus:border-amber-600 font-sans">
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+    {% block scripts %}
+
+    {% endblock  %}
+{% endblock  %}
+
