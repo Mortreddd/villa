@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}Dashboard{% endblock  %}
+
+
+
+{% block content %}
+    
+    <div class="bg-gray-300 w-full h-fit">
+        {% include "includes/admin/sidebar.html" %}
+        <div class="relative w-auto h-fit">
+            <h1 class="text-xl font-sans text-black">Hello World</h1>
+        </div>
+    </div>
+
+    {% block scripts %}
+
+    {% endblock  %}
+{% endblock  %}
