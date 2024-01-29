@@ -1,0 +1,7 @@
+
+pip install django
+
+npm install
+npm install tailwindcss postcss autoprefixer
+npx tailwindcss -p
+

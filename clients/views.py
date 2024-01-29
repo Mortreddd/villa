@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 
@@ -17,9 +18,9 @@ def send_email(request):
     if all(fields):
         send_mail(subject, message, client_email, ['emmanmale@gmail.com'], fail_silently=False)
     
-        return HttpResponseRedirect('thank-you/')
+        return HttpResponseRedirect(reverse('clients:thanks'))
 
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect(reverse('clients:home'))
 
 
 def thank_you(request):
