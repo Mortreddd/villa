@@ -16,18 +16,11 @@ Including another URLconf
 """
 
 from django.urls import path, include
-from api.models import PropertiesResource, TransactionsResource
-
-
-properties_resource = PropertiesResource()
-transactions_resource = TransactionsResource()
-
-
+from api.urls import v1_api
 
 urlpatterns = [
     path('admin/', include('admin.urls')),
     path('', include('clients.urls')),
     path('properties/', include('properties.urls')),
-    path('api/', include(properties_resource.urls)),
-    path('api/', include(transactions_resource.urls))
+    path('api/', include(v1_api.urls))
 ]

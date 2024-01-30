@@ -1,7 +1,11 @@
-from django.urls import path
-from .views import properties
+from django.urls import path, include
+from .models import PropertiesResource, TransactionsResource
+from tastypie.api import Api    
 
-urlpatterns = [
-    path('properties/', properties, name="properties"),
-    
-]
+properties_resource = PropertiesResource()
+transactions_resource = TransactionsResource()
+
+v1_api = Api(api_name='v1')
+v1_api.register(PropertiesResource())
+v1_api.register(TransactionsResource())
+

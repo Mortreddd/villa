@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'transactions.apps.TransactionsConfig',
     'properties.apps.PropertiesConfig',
     'api.apps.ApiConfig',
-    'admin.apps.AdminConfig'
+    'admin.apps.AdminConfig',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'villa.urls'
@@ -142,3 +144,12 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True 
 EMAIL_HOST_USER = 'uniread.platform@gmail.com'
 EMAIL_HOST_PASSWORD = 'fzkoapuquwwqsqab'
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+    # Add other allowed origins as needed
+]
+
+CORS_ALLOW_ALL_ORIGINS = True

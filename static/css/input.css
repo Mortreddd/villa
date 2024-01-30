@@ -4,10 +4,20 @@
 
 @layer components {
   .active-property {
-    @apply transition-all duration-300 ease-in block;
+    @apply block transition-all duration-300 ease-in;
   }
 
   .inactive-property {
-    @apply transition-all duration-300 ease-out h-0 opacity-0 hidden;
+    @apply hidden h-0 transition-all duration-300 ease-out opacity-0;
+  }
+
+
+  .active-property-type{
+    @apply bg-amber-600 hover:bg-amber-700
+  }
+
+
+  .inactive-property-type{
+    @apply hover:text-red-600 bg-black
   }
 }
