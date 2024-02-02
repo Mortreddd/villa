@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'clients.apps.ClientsConfig',
     'transactions.apps.TransactionsConfig',
     'properties.apps.PropertiesConfig',
+    'emails.apps.EmailsConfig',
     'api.apps.ApiConfig',
     'admin.apps.AdminConfig',
+    'authentication.apps.AuthenticationConfig',
     'corsheaders'
 ]
 

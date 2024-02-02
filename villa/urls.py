@@ -21,6 +21,8 @@ from api.urls import v1_api
 urlpatterns = [
     path('admin/', include('admin.urls')),
     path('', include('clients.urls')),
+    path('contact/', include('emails.urls')),
     path('properties/', include('properties.urls')),
+    path('auth/', include('authentication.urls')),
     path('api/', include(v1_api.urls))
 ]

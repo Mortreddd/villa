@@ -1,6 +1,6 @@
 {% load static %}
 
-<header class="relative w-full h-auto py-2 divide-y-2 bg-white">
+<header class="relative w-full h-auto py-2 bg-white divide-y-2">
     <div class="relative flex justify-between w-full px-24 py-2 bg-white">
         <div class="flex gap-5">
             <div class="flex items-center gap-5">
@@ -50,24 +50,27 @@
             
         </div>
     </div>
-    <nav class="relative bg-white flex items-center justify-between w-full px-24 py-6">
+    <nav class="relative flex items-center justify-between w-full px-24 py-6 bg-white">
         <a href="{% url "clients:home" %}" class="text-3xl font-bold text-black font sans">VILLA</a>
         <div class="flex items-center gap-10 justify-evenly">
 
             <a href="{% url "clients:home" %}" class="font-sans text-gray-800 transition-colors duration-300 ease-in-out text-md hover:text-amber-600">Home</a>
             <a href="{% url "properties:index" %}" class="font-sans text-gray-800 transition-colors duration-300 ease-in-out text-md hover:text-amber-600">Properties</a>
             <a href="{% url "properties:details" %}" class="font-sans text-gray-800 transition-colors duration-300 ease-in-out text-md hover:text-amber-600">Properties Details</a>
-            <a href="#" class="font-sans text-gray-800 transition-colors duration-300 ease-in-out text-md hover:text-amber-600">Contact Us</a>
-            <div class="flex items-center text-white rounded-full bg-slate-950">
-                <a href="#" class="mr-5 transition-colors duration-300 ease-in-out rounded-full bg-amber-700 hover:bg-amber-800">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 m-3 text-white transition-colors duration-300 ease-in-out rounded hover:text-gray-500">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
-                    </svg>
-                </a>
-                <div class="flex items-center justify-center w-auto h-auto rounded-full">
-                    <a href="#" class="mr-5 font-sans text-sm font-medium text-white transition-colors duration-300 ease-in-out hover:text-red-700">Schedule a visit</a>
+            {% if not user.is_authenticated %}
+                <a href="{% url "authentication:login" %}" class="px-5 py-2 font-sans text-white transition-colors duration-300 ease-in-out bg-black rounded-l-full rounded-r-full hover:bg-amber-600">Login</a>
+            {% else %}
+                <div class="flex items-center text-white rounded-full bg-slate-950">
+                    <a href="#" class="mr-5 transition-colors duration-300 ease-in-out rounded-full bg-amber-700 hover:bg-amber-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 m-3 text-white transition-colors duration-300 ease-in-out rounded hover:text-gray-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                        </svg>
+                    </a>
+                    <div class="flex items-center justify-center w-auto h-auto rounded-full">
+                        <a href="#" class="mr-5 font-sans text-sm font-medium text-white transition-colors duration-300 ease-in-out hover:text-red-700">Schedule a visit</a>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         </div>
     </nav>
 </header>

@@ -1,16 +1,14 @@
-{% load static %}
 {% extends "base.html" %}
+{% load static %}
 
-
-{% block title %}Thank you for reaching us{% endblock  %}
+{% block title %}Login{% endblock  %}
 
 
 {% block content %}
     {% include 'includes/header.html' %}
     <div class="w-full p-12 h-fit">
         <div class="flex flex-col items-center w-full ">
-            <h1>Thank you for reaching us</h1>
-            <p>We will get back to you as soon as possible</p>
+            <h1>This is the login page</h1>
             <a href="{% url 'clients:home' %}" class="text-blue-500">Go back to home</a>
         </div>
     </div>
