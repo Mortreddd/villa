@@ -55,7 +55,7 @@
         <div class="flex items-center gap-10 justify-evenly">
 
             <a href="{% url "clients:home" %}" class="font-sans text-gray-800 transition-colors duration-300 ease-in-out text-md hover:text-amber-600">Home</a>
-            <a href="{% url "properties:index" %}" class="font-sans text-gray-800 transition-colors duration-300 ease-in-out text-md hover:text-amber-600">Properties</a>
+            <a href="{% url "properties:index" %}?page=1" class="font-sans text-gray-800 transition-colors duration-300 ease-in-out text-md hover:text-amber-600">Properties</a>
             <a href="{% url "properties:details" %}" class="font-sans text-gray-800 transition-colors duration-300 ease-in-out text-md hover:text-amber-600">Properties Details</a>
             {% if not user.is_authenticated %}
                 <a href="{% url "authentication:login" %}" class="px-5 py-2 font-sans text-white transition-colors duration-300 ease-in-out bg-black rounded-l-full rounded-r-full hover:bg-amber-600">Login</a>
